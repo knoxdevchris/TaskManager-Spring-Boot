@@ -5,7 +5,7 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn --batch-mode clean package -DskipTests
 
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:17-jre-ubi9-minimal
 WORKDIR /app
 COPY --from=build /app/target/taskmanager-0.0.1-SNAPSHOT.jar app.jar
 
